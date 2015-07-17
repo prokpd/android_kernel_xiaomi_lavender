@@ -284,7 +284,7 @@ static void nohz_full_kick_ipi(void *info)
  * Kick all full dynticks CPUs in order to force these to re-evaluate
  * their dependency on the tick and restart it if necessary.
  */
-void tick_nohz_full_kick_all(void)
+static void tick_nohz_full_kick_all(void)
 {
 	if (!tick_nohz_full_running)
 		return;
