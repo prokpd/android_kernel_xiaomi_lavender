@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "Cloning dependencies"
-git clone --depth=1 https://github.com/stormbreaker-project/android_kernel_xiaomi_lavender -b  staging2  kernel
+git clone --depth=1 https://github.com/stormbreaker-project/android_kernel_xiaomi_lavender -b backports  kernel
 cd kernel
 git clone --depth=1 https://github.com/kdrag0n/proton-clang clang
 git clone --depth=1 https://github.com/sohamxda7/AnyKernel3 AnyKernel
@@ -60,7 +60,7 @@ function compile() {
 function zipping() {
     cd AnyKernel || exit 1
     zip -r9 Predator-Stormbreaker-lavender-${TANGGAL}.zip *
-    cd .. 
+    cd ..
 }
 sticker
 sendinfo
@@ -69,4 +69,3 @@ zipping
 END=$(date +"%s")
 DIFF=$(($END - $START))
 push
-
